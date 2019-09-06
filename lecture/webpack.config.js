@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack'); 
 module.exports = {
     name: 'wordrelay-setting', // 상관없음 
     mode: 'development',
@@ -15,7 +16,12 @@ module.exports = {
             loader : 'babel-loader',
             options : {
                 presets: [
-                    '@babel/preset-env',
+                    ['@babel/preset-env',{
+                        targets: {
+                            browsers: ['> 5% in KR','last 2 chrome versions'], //browserslist
+                        },
+                        debug: true
+                    }],
                     '@babel/preset-react',
                 ],
                 plugins: [
@@ -24,7 +30,9 @@ module.exports = {
             }
         }],
     },
-    
+    plugins:[
+        new webpack.LoaderOptionsPlugin({debug: true}),
+    ],
     output: { // 출력 
         path: path.join(__dirname ,'dist'),
         filename: 'app.js'
