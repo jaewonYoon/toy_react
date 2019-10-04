@@ -8,7 +8,7 @@ module.exports = {
         extensions: ['.js','.jsx']
     },
     entry: { // 입력 
-        app: ['./client.jsx','./WordRelay.jsx'],
+        app: ['./client.jsx','./NumberBaseball.jsx'],
     },
     module : {
         rules : [{
@@ -25,7 +25,8 @@ module.exports = {
                     '@babel/preset-react',
                 ],
                 plugins: [
-                    '@babel/plugin-proposal-class-properties'
+                    '@babel/plugin-proposal-class-properties',
+                    'react-hot-loader/babel'
                 ]
             }
         }],
