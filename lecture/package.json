@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --hot"
-  }, 
+  },
   "author": "jaewon",
   "license": "MIT",
   "dependencies": {
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react": "^16.7.0-alpha.0",
+    "react-dom": "^16.7.0-alpha.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
