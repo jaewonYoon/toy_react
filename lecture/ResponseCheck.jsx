@@ -1,16 +1,11 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 
-class ResponseCheck extends Component{
-    state = {
-        state: 'waiting',
-        message: '클릭해서 시작하세요.',
-        result: [],
-    };
+const ResponseCheck = () => {
+    const [state,setState] = useState('waiting');
+    const [message, setMessage] = useState('클릭해서 시작하세요.');
+    const [result, setResult] = useState([]);
 
-    timeout;
-    startTime;
-    endTime;
-    onClickScreen = () => {
+    const onClickScreen = () => {
         const {state, message, result} = this.state;
         if(state === 'waiting') {
             this.setState({
@@ -42,13 +37,39 @@ class ResponseCheck extends Component{
             );
         }
     };
+    const onReset = () => {
+        setResult([]);
+    };
+    const renderAverate = () => {
+        return result.length = 0
+    }
+}
+class ResponseCheck extends Component{
+    state = {
+        state: 'waiting',
+        message: '클릭해서 시작하세요.',
+        result: [],
+    };
+
+    timeout;
+    startTime;
+    endTime;
+    onClickScreen = () => {
+    };
+    onRest = () => {
+        this.setState({
+            result:[],
+        });
+    };
     renderAverage = () => {
         const {result} = this.state;
         return(
             result.length ===0
                 ? null
-                :
-                <div>평균시간: {result.reduce((a,c) => a + c) / result.length}ms </div>
+                : <>
+                    <div>평균시간: {result.reduce((a,c) => a + c) / result.length}ms </div>
+                    <button onClick={this.onRest}>리셋</button>
+                  </>
         );
     };
     render(){
